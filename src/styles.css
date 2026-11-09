@@ -1,3 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
 
-@import 'tailwindcss';
+/* =========================================
+   FRAMEWORK IMPORTS
+========================================= */
+
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+
+
+/* =========================================
+   DARK MODE CONFIGURATION
+========================================= */
+
+@custom-variant dark (&:where(.forest-dark, .forest-dark *));
+
+
+/* =========================================
+   FOREST DESIGN SYSTEM
+========================================= */
+
+@theme {
+
+  /* Forest backgrounds */
+  --color-forest: #182B24;
+  --color-woodland: #263D32;
+  --color-moss: #657653;
+
+  /* Natural accents */
+  --color-sage: #A3AE8C;
+  --color-gold: #C5A66A;
+  --color-earth: #795C43;
+
+  /* Text */
+  --color-parchment: #E9DFC5;
+  --color-cream: #F4EEDF;
+  --color-mist: #BCC8B9;
+
+  /* Borders */
+  --color-forest-border: #465844;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--color-forest);
+  color: var(--color-parchment);
+}
+
+
+/* =========================================
+   FOREST UTILITIES
+========================================= */
+
+.forest-card {
+  background-color: var(--color-woodland);
+  border: 1px solid var(--color-forest-border);
+  border-radius: 14px;
+  transition: all 250ms ease;
+}
+
+.forest-card:hover {
+  border-color: var(--color-sage);
+  transform: translateY(-4px);
+}
+
+.forest-heading {
+  font-family: var(--font-heading);
+  color: var(--color-cream);
+}
+
+.forest-muted {
+  color: var(--color-mist);
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
